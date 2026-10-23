@@ -1,0 +1,1194 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style></head><body><title>Portal Mato Grosso Hospitaleiro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: uma "casa" com quatro portas (Movimento, Instituições, Empresas, Conhecimento); faixas largas alternando papel e fundo azul-escuro, conteúdo em coluna de 72rem */
+:root{
+  --ink:#10245E;        /* azul-escuro do movimento: títulos, fundos fortes */
+  --blue:#4364C0;       /* azul de ação */
+  --mist:#96A6C6;       /* nível 2, detalhes */
+  --fog:#C6CBD4;        /* nível 1, linhas */
+  --paper:#F4F5F7;      /* fundo de faixas */
+  --bg:#FFFFFF;
+  --surface:#FFFFFF;
+  --text:#4A5261;
+  --strong:#16181F;
+  --amber:#D9824E;      /* só decorativo */
+  --line:#DDE2EB;
+  --ok:#1F7A4D; --warn:#9A5B12; --bad:#A83232;
+  --on-ink:#FFFFFF; --on-ink-soft:#C6CBD4;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Arial,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#DCE3F5; --blue:#8FA8EE; --mist:#5C6E96; --fog:#3A4560; --paper:#111A33; --bg:#0B1229; --surface:#131D3A;
+  --text:#C2CADB; --strong:#F2F4F9; --line:#26314F; --ok:#5CC08D; --warn:#E0A55A; --bad:#EE8080;
+  --on-ink:#0B1229; --on-ink-soft:#33415F; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --ink:#DCE3F5; --blue:#8FA8EE; --mist:#5C6E96; --fog:#3A4560; --paper:#111A33; --bg:#0B1229; --surface:#131D3A;
+  --text:#C2CADB; --strong:#F2F4F9; --line:#26314F; --ok:#5CC08D; --warn:#E0A55A; --bad:#EE8080;
+  --on-ink:#0B1229; --on-ink-soft:#33415F; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,5.4vw,4.2rem);font-variation-settings:"wdth" 112;font-weight:780;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-variation-settings:"wdth" 106;font-weight:740}
+h3{font-size:1.25rem;font-weight:700}
+h4{font-size:1.02rem;font-weight:700}
+p{margin:0}
+a{color:var(--blue)}
+strong,b{color:var(--strong)}
+.wrap{max-width:72rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(3rem,7vw,5.5rem)}
+.band.paper{background:var(--paper)}
+.band.ink{background:var(--ink);color:var(--on-ink-soft)}
+.band.ink h2,.band.ink h3,.band.ink strong{color:var(--on-ink)}
+.eyebrow{font-family:var(--display);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--ink) 0 55%,var(--blue) 55% 78%,var(--amber) 78%)}
+.band.ink .eyebrow{color:var(--on-ink)}
+.lead{font-size:1.2rem;max-width:44rem}
+.stack{display:grid;gap:1rem}
+.stack-l{display:grid;gap:1.6rem}
+.muted{color:var(--text);opacity:.85;font-size:.92rem}
+.src{font-size:.8rem;opacity:.8;font-style:italic}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1.5rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1.25rem}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:1rem}
+.grid2>*,.grid3>*,.grid4>*{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.3rem 1.4rem}
+.band.paper .card{border-color:transparent}
+.tag{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--display);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:99px;background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.btn{font:inherit;font-family:var(--display);font-weight:700;font-size:.98rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.78rem 1.25rem;border-radius:8px;border:2px solid var(--blue);background:var(--blue);color:#fff;text-decoration:none;cursor:pointer;line-height:1.2}
+:root[data-theme="dark"] .btn:not(.ghost){color:#0B1229}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn:not(.ghost){color:#0B1229}}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.small{padding:.5rem .9rem;font-size:.88rem}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+.row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+
+/* faixa de demonstração e cabeçalho */
+.demo{background:var(--amber);color:#2B1606;font-size:.82rem;font-weight:600;text-align:center;padding-block:.35rem}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:1rem;min-height:4.2rem}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);margin-right:auto}
+.brand svg{width:46px;height:26px;flex:none}
+.brand span{font-family:var(--display);font-weight:760;font-variation-settings:"wdth" 96;line-height:1.02;font-size:.98rem;color:var(--ink)}
+.brand small{display:block;font-size:.62rem;letter-spacing:.16em;color:var(--blue);font-weight:700}
+nav.main{display:flex;gap:.2rem}
+nav.main a{font-family:var(--display);font-weight:650;font-size:.92rem;color:var(--ink);text-decoration:none;padding:.5rem .7rem;border-radius:6px}
+nav.main a[aria-current="page"]{background:var(--paper);box-shadow:inset 0 -3px 0 var(--blue)}
+.top .actions{display:flex;gap:.5rem}
+.menu-btn{display:none;font:inherit;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.45rem .7rem;font-weight:700;font-family:var(--display)}
+@media (max-width: 960px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem max(16px,env(safe-area-inset-left,0px)) 1rem max(16px,env(safe-area-inset-right,0px))}
+  nav.main.open{display:flex}
+  .menu-btn{display:inline-block}
+  .top .actions .btn.ghost{display:none}
+}
+@media (max-width: 520px){.top .actions .btn{padding:.5rem .7rem;font-size:.82rem}.brand span{font-size:.86rem}}
+
+/* HERO */
+.hero{padding-block:clamp(2.5rem,6vw,4.5rem) clamp(2rem,5vw,3.5rem)}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:end}
+.hero-grid>*{min-width:0}
+@media (max-width: 860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero .sub{font-size:1.18rem;max-width:38rem;margin-top:1.2rem}
+.hero .row{margin-top:1.6rem}
+.door{position:relative;border-radius:14px;background:var(--ink);color:var(--on-ink-soft);padding:1.6rem 1.5rem;overflow:hidden}
+.door h3{color:var(--on-ink);font-size:1.05rem;margin-bottom:.9rem}
+.metas{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem 1.2rem}
+.metas div{border-top:1px solid var(--on-ink-soft);padding-top:.5rem}
+.metas b{display:block;font-family:var(--display);font-size:2rem;font-weight:780;color:var(--on-ink);font-variant-numeric:tabular-nums;line-height:1.05}
+.metas span{font-size:.86rem;line-height:1.3;display:block}
+.door .src{margin-top:1rem;color:var(--on-ink-soft)}
+
+/* números */
+.numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.numbers .x{}
+@media (max-width: 760px){.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 420px){.numbers{grid-template-columns:1fr}}
+.numbers>div{background:var(--surface);padding:1.1rem 1.1rem 1.2rem;min-width:0}
+.numbers b{display:block;font-family:var(--display);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:780;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:"wdth" 104;line-height:1.1}
+.numbers span{display:block;font-size:.9rem;line-height:1.35;margin-top:.25rem}
+
+/* controle */
+.control{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+@media (max-width: 760px){.control{grid-template-columns:1fr}}
+.control>div{padding:1.6rem 1.5rem;min-width:0}
+.control .out{background:var(--paper)}
+.control .out li{color:var(--text);opacity:.9}
+.control .in{background:var(--ink);color:var(--on-ink-soft)}
+.control .in strong{color:var(--on-ink)}
+.control .in h3{color:var(--on-ink);font-size:1.6rem;font-variation-settings:"wdth" 108}
+.control ul{margin:.8rem 0 0;padding-left:1.1rem;display:grid;gap:.45rem}
+.big-quote{font-family:var(--display);font-weight:760;color:var(--on-ink);font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.18;margin-top:.8rem;font-variation-settings:"wdth" 104}
+
+/* venn */
+.venn-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:2rem;align-items:center}
+@media (max-width: 860px){.venn-wrap{grid-template-columns:1fr}}
+.venn{width:100%;max-width:470px;height:auto;display:block;margin:0 auto}
+.venn circle{transition:fill-opacity .2s}
+.venn .c1{fill:#96A6C6} .venn .c2{fill:#4364C0} .venn .c3{fill:#10245E}
+.venn text{font-family:var(--display);fill:#fff;stroke:#10245E;stroke-width:3px;paint-order:stroke;stroke-linejoin:round}
+.venn .lab{font-weight:780;font-size:15px}
+.venn .ix{font-weight:650;font-size:11.5px}
+.venn .center{font-weight:800;font-size:11.5px}
+.dims{display:grid;gap:.9rem}
+.dim{border-left:4px solid var(--c);padding:.2rem 0 .2rem 1rem}
+.dim h3{display:flex;gap:.6rem;align-items:baseline;flex-wrap:wrap}
+.dim h3 small{font-family:var(--body);font-weight:600;font-size:.85rem;color:var(--blue)}
+.motto{font-family:var(--display);font-weight:760;font-size:1.25rem;color:var(--ink);border-top:1px solid var(--line);padding-top:1rem;margin-top:.4rem}
+
+/* governança */
+.gov{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+@media (max-width: 960px){.gov{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 560px){.gov{grid-template-columns:1fr}}
+.gov .col{background:var(--surface);border-radius:var(--r);padding:1.1rem;border-top:5px solid var(--c);display:grid;gap:.7rem;align-content:start}
+.gov .col>p.verb{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.gov .unit{border:1px solid var(--line);border-radius:8px;padding:.7rem .8rem}
+.gov .unit h4{font-size:.98rem}
+.gov .unit p{font-size:.9rem;line-height:1.45;margin-top:.25rem}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1rem}
+.principles>div{border-top:2px solid var(--on-ink-soft);padding-top:.8rem;min-width:0}
+
+/* passos */
+.steps{counter-reset:s;display:grid;gap:0;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bg);font-size:1rem}
+.steps li>div{min-width:0}
+.steps h4{margin-bottom:.15rem}
+
+/* tabela */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;min-width:36rem}
+th,td{text-align:left;padding:.7rem .85rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--display);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--paper)}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* frentes e caminhos */
+.fronts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media (max-width: 860px){.fronts{grid-template-columns:1fr}}
+.fronts .card h3{margin:.4rem 0 .5rem}
+.paths{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch}
+@media (max-width: 760px){.paths{grid-template-columns:1fr}.paths .same{transform:none}}
+.paths .card{border-width:2px}
+.paths .same{align-self:center;justify-self:center;font-family:var(--display);font-weight:800;color:var(--ink);text-align:center;font-size:.85rem;line-height:1.3;max-width:9rem}
+
+/* escada de níveis */
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;align-items:end}
+@media (max-width: 860px){.ladder{grid-template-columns:1fr 1fr}}
+@media (max-width: 480px){.ladder{grid-template-columns:1fr}}
+.step-l{border-radius:12px;padding:1.1rem 1.1rem 1.2rem;display:grid;gap:.45rem;align-content:start;min-width:0}
+.step-l .n{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;opacity:.8}
+.step-l h3{color:inherit;font-size:1.3rem}
+.step-l p{font-size:.93rem;line-height:1.45}
+.step-l dl{display:grid;grid-template-columns:auto 1fr;gap:.15rem .7rem;margin:.3rem 0 0;font-size:.85rem}
+.step-l dt{font-weight:700} .step-l dd{margin:0}
+.l1{background:#C6CBD4;color:#10245E;min-height:15rem}
+.l2{background:#96A6C6;color:#10245E;min-height:17rem}
+.l3{background:#4364C0;color:#fff;min-height:19rem}
+.l4{background:#10245E;color:#fff;min-height:21rem}
+@media (max-width: 860px){.l1,.l2,.l3,.l4{min-height:0}}
+.cycle{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem;counter-reset:c}
+@media (max-width: 860px){.cycle{grid-template-columns:1fr}}
+.cycle>div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem;min-width:0;position:relative}
+.cycle>div b{font-family:var(--display);color:var(--ink);display:block}
+.cycle>div i{font-style:normal;color:var(--blue);font-weight:700;font-size:.88rem;display:block;margin:.15rem 0 .35rem}
+.cycle>div p{font-size:.9rem;line-height:1.45}
+
+/* app de adesão */
+.app{display:grid;grid-template-columns:16rem minmax(0,1fr);gap:1.5rem;align-items:start}
+@media (max-width: 900px){.app{grid-template-columns:1fr}}
+.rail{position:sticky;top:6rem;display:grid;gap:.25rem;list-style:none;margin:0;padding:1rem;background:var(--paper);border-radius:12px}
+@media (max-width: 900px){.rail{position:static;grid-template-columns:repeat(5,minmax(0,1fr));padding:.6rem;gap:.3rem}.rail li span.t{display:none}}
+.rail li{display:flex;gap:.6rem;align-items:center;padding:.45rem .5rem;border-radius:8px;font-size:.92rem;min-width:0}
+.rail li .d{width:1.7rem;height:1.7rem;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.8rem;background:var(--surface);color:var(--ink);border:2px solid var(--fog);flex:none}
+.rail li.now{background:var(--surface);font-weight:700;color:var(--ink)}
+.rail li.now .d{border-color:var(--blue);color:var(--blue)}
+.rail li.done .d{background:var(--blue);border-color:var(--blue);color:var(--bg)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(1.1rem,3vw,2rem);min-width:0}
+.panel h3{font-size:1.45rem;margin-bottom:.35rem}
+form .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.1rem;margin-top:1.2rem}
+@media (max-width: 640px){form .fields{grid-template-columns:1fr}}
+.f{display:grid;gap:.3rem;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-weight:600;color:var(--strong);font-size:.93rem}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--strong);background:var(--bg);border:1.5px solid var(--fog);border-radius:8px;padding:.62rem .75rem;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
+.hint{font-size:.82rem;opacity:.85}
+.err{font-size:.84rem;color:var(--bad);font-weight:600}
+.check{display:flex;gap:.6rem;align-items:flex-start;font-weight:400;color:var(--text)}
+.check input{width:1.15rem;height:1.15rem;margin-top:.2rem;flex:none}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;margin:0;display:grid;gap:.6rem;min-width:0}
+legend{font-family:var(--display);font-weight:700;color:var(--ink);padding:0 .3rem;font-size:.92rem}
+.inbox{border:1.5px dashed var(--mist);border-radius:10px;padding:1rem;background:var(--paper);font-size:.95rem}
+.inbox .code{font-family:var(--display);font-size:1.6rem;font-weight:800;letter-spacing:.3em;color:var(--ink)}
+.otp{font-family:var(--display);font-size:1.6rem;letter-spacing:.4em;text-align:center;max-width:14rem}
+
+/* questionário */
+.qhead{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
+.prog{height:8px;border-radius:99px;background:var(--paper);overflow:hidden;margin:.9rem 0 1.2rem}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--mist),var(--blue));width:0;transition:width .3s}
+.q{border-top:1px solid var(--line);padding:1rem 0;display:grid;gap:.55rem}
+.q .meta{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.q .code{font-family:var(--display);font-weight:800;font-size:.8rem;color:var(--blue)}
+.q p.req{color:var(--strong);font-weight:600}
+.q p.ev{font-size:.86rem}
+.opts{display:flex;flex-wrap:wrap;gap:.45rem}
+.opts label{font-weight:600;font-size:.88rem;border:1.5px solid var(--fog);border-radius:99px;padding:.38rem .8rem;cursor:pointer;display:flex;gap:.4rem;align-items:center;color:var(--text);background:var(--bg)}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts input:checked+span{color:var(--blue)}
+.opts label:has(input:checked){border-color:var(--blue);background:color-mix(in srgb,var(--blue) 12%,var(--bg))}
+.opts label:has(input:focus-visible){outline:3px solid var(--amber);outline-offset:2px}
+.dimA{--dc:var(--mist)} .dimB{--dc:var(--blue)} .dimC{--dc:var(--ink)} .dimE{--dc:var(--amber)}
+.dtag{font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.15rem .5rem;border-radius:99px;border:1.5px solid var(--dc);color:var(--ink)}
+
+/* resultado */
+.result{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1.5rem;align-items:start}
+@media (max-width: 720px){.result{grid-template-columns:1fr}}
+.badge{border-radius:14px;padding:1.3rem;text-align:center;display:grid;gap:.3rem}
+.badge b{font-family:var(--display);font-size:3rem;line-height:1;font-weight:800}
+.badge span{font-family:var(--display);font-weight:760;font-size:1.25rem}
+.gaps{margin:.5rem 0 0;padding-left:1.1rem;display:grid;gap:.35rem;font-size:.93rem}
+.choice{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:1rem;margin-top:1rem}
+.choice .card{display:grid;gap:.6rem;align-content:start;border-width:2px}
+.status{display:flex;gap:.6rem;align-items:center;font-weight:700;color:var(--ink)}
+.dot{width:.65rem;height:.65rem;border-radius:50%;background:var(--amber);flex:none}
+.dot.ok{background:var(--ok)}
+.timeline{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem}
+.timeline li{display:grid;grid-template-columns:1.5rem 1fr;gap:.6rem;align-items:start;font-size:.95rem}
+.timeline li::before{content:"";width:.9rem;height:.9rem;border-radius:50%;border:2px solid var(--fog);margin-top:.35rem}
+.timeline li.ok::before{background:var(--ok);border-color:var(--ok)}
+.timeline li.now::before{border-color:var(--blue);background:var(--bg)}
+pre.rec{background:var(--paper);border-radius:10px;padding:1rem;overflow-x:auto;font-size:.8rem;line-height:1.5;color:var(--strong);margin:0}
+details summary{cursor:pointer;font-weight:700;color:var(--blue);font-family:var(--display)}
+
+/* blog */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 1.6rem}
+.filters button{font:inherit;font-size:.88rem;font-weight:600;border:1.5px solid var(--fog);background:var(--bg);color:var(--ink);padding:.4rem .9rem;border-radius:99px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.25rem}
+.post{display:grid;grid-template-rows:auto 1fr auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;min-width:0}
+.post .art{height:7.5rem;position:relative;overflow:hidden}
+.post .body{padding:1.1rem 1.2rem;display:grid;gap:.5rem;align-content:start}
+.post h3{font-size:1.15rem}
+.post .foot{padding:.8rem 1.2rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--blue);font-weight:700;font-family:var(--display)}
+.post:hover h3{text-decoration:underline}
+article.read{max-width:44rem}
+article.read p{margin-top:1rem}
+article.read h3{margin-top:2rem}
+article.read ul{padding-left:1.2rem;display:grid;gap:.4rem;margin-top:.8rem}
+
+/* painel de operação */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.5rem),1fr));gap:.8rem}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;min-width:0}
+.kpi b{font-family:var(--display);font-size:2rem;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;display:block;line-height:1.1}
+.kpi span{font-size:.85rem;line-height:1.3;display:block}
+.empty{border:1.5px dashed var(--mist);border-radius:12px;padding:1.5rem;text-align:center;display:grid;gap:.7rem;justify-items:center}
+.bars{display:grid;gap:.5rem}
+.bars div{display:grid;grid-template-columns:7.5rem 1fr 2rem;gap:.6rem;align-items:center;font-size:.9rem}
+.bars i{display:block;height:.9rem;border-radius:4px;background:var(--blue);min-width:2px}
+
+
+/* aliança */
+.tiers{display:grid;gap:1rem}
+.tier{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:1.2rem;background:var(--surface);border-radius:12px;padding:1.4rem 1.5rem;border-left:6px solid var(--c)}
+.tier.t1{--c:var(--ink)} .tier.t2{--c:var(--blue)} .tier.t3{--c:var(--mist)}
+.tier .k{font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--c)}
+.tlabel{font-family:var(--display);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.orgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:.8rem;margin-top:.4rem}
+.orgs>div{border-top:2px solid var(--fog);padding-top:.55rem;min-width:0}
+.orgs b{display:block;font-family:var(--display);color:var(--ink);font-size:.92rem}
+.orgs span{font-size:.92rem;line-height:1.4;display:block;margin-top:.15rem}
+@media (max-width: 520px){.tier{grid-template-columns:1fr;gap:.4rem}}
+.govlist{border-top:2px solid var(--ink)}
+.govhead,.govrow{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) minmax(0,16rem);gap:1.5rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.govhead{padding:.6rem 0;font-family:var(--display);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.govrow h3{font-size:1.12rem;margin-top:.15rem}
+.govrow .fn{font-family:var(--display);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);opacity:.8}
+.govrow .comp{font-size:.92rem}
+.govrow .comp span{font-size:.82rem;font-style:italic;opacity:.8}
+@media (max-width: 820px){.govhead{display:none}.govrow{grid-template-columns:1fr;gap:.4rem}}
+
+footer.site{background:var(--ink);color:var(--on-ink-soft);padding-block:2.5rem;font-size:.92rem}
+footer.site .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+@media (max-width: 760px){footer.site .wrap{grid-template-columns:1fr}}
+footer.site h4{color:var(--on-ink);margin-bottom:.6rem;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
+footer.site a{color:var(--on-ink);text-decoration:none}
+footer.site ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+.sebrae{background:#fff;border-radius:8px;padding:.5rem .7rem;display:inline-block;margin-top:.9rem}
+.sebrae img{display:block;height:34px;width:auto}
+
+[data-view]{animation:fade .25s ease}
+@keyframes fade{from{opacity:.4}to{opacity:1}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1rem + env(safe-area-inset-bottom,0px));background:var(--strong);color:var(--bg);padding:.7rem 1.1rem;border-radius:8px;font-weight:600;z-index:50;max-width:calc(100% - 32px)}
+</style>
+
+<a class="sr" href="#conteudo">Pular para o conteúdo</a>
+<div class="demo"><div class="wrap">Protótipo de demonstração · nenhum dado é enviado ou guardado fora desta página</div></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#movimento" aria-label="Movimento Mato Grosso Hospitaleiro, início">
+      <svg viewBox="15 54 170 92" aria-hidden="true"><defs><linearGradient id="lg" gradientUnits="userSpaceOnUse" x1="25" y1="0" x2="117" y2="0"><stop offset="0" stop-color="#96A6C6"/><stop offset="1" stop-color="#4364C0"/></linearGradient></defs><polyline points="25,136 25,64 48,106 71,64 94,106 117,64 117,136" fill="none" stroke="url(#lg)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><g stroke="currentColor" stroke-width="15" stroke-linecap="round"><line x1="137" y1="64" x2="137" y2="136"/><line x1="175" y1="64" x2="175" y2="136"/><line x1="137" y1="100" x2="175" y2="100"/></g></svg>
+      <span><small>MOVIMENTO</small>Mato Grosso Hospitaleiro</span>
+    </a>
+    <nav class="main" id="nav" aria-label="Seções">
+      <a href="#movimento" data-nav="movimento">O Movimento</a>
+      <a href="#instituicoes" data-nav="instituicoes">Para Instituições</a>
+      <a href="#empresas" data-nav="empresas">Para Empresas</a>
+      <a href="#conhecimento" data-nav="conhecimento">Conhecimento</a>
+    </nav>
+    <div class="actions">
+      <a class="btn ghost small" href="#adesao" id="enterBtn">Entrar</a>
+      <a class="btn small" href="#adesao">Aderir</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- =============== 1. O MOVIMENTO =============== -->
+<div data-view="movimento">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Amabilidade e Excelência em Atendimento</p>
+        <h1 style="margin-top:.9rem">Em Mato Grosso, quem chega é <em>convidado</em>.</h1>
+        <p class="sub">O Movimento Mato Grosso Hospitaleiro é uma iniciativa estadual conduzida pelo Sebrae/MT. Ele reúne empresas, entidades e poder público para fazer do atendimento do comércio e dos serviços de Mato Grosso uma referência nacional e internacional de hospitalidade.</p>
+        <div class="row">
+          <a class="btn" href="#empresas">Minha empresa quer participar</a>
+          <a class="btn ghost" href="#instituicoes">Sou uma instituição</a>
+        </div>
+      </div>
+      <aside class="door" aria-label="Metas do primeiro ciclo">
+        <h3>Aonde queremos chegar no ciclo 2027–2028</h3>
+        <div class="metas">
+          <div><b>20</b><span>municípios com comitê instalado</span></div>
+          <div><b>5</b><span>regionais do Sebrae/MT</span></div>
+          <div><b>500</b><span>empresas na jornada completa</span></div>
+          <div><b>1.500</b><span>profissionais capacitados</span></div>
+          <div><b>350</b><span>selos concedidos</span></div>
+          <div><b>3.000</b><span>autodiagnósticos no portal</span></div>
+        </div>
+        <p class="src">Metas do projeto (itens 2.1 e 3.7). Resultados serão publicados após cada apuração.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band paper">
+    <div class="wrap grid2" style="align-items:center">
+      <div class="stack">
+        <p class="eyebrow">O espírito do movimento</p>
+        <h2>Receber bem já faz parte de quem somos</h2>
+      </div>
+      <div class="stack">
+        <p>Mato Grosso aprendeu a acolher quem chega. Essa tradição vem dos ciclos do ouro e do diamante, da convivência entre povos e do gosto pela festa e pelo encontro.</p>
+        <p>O movimento transforma esse traço cultural em prática consistente no atendimento. Uma prática que não dependa do humor do dia nem de quem está no balcão.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack">
+        <p class="eyebrow">Por que agora</p>
+        <h2>Comércio e serviços sustentam o estado, mas fecham cedo demais</h2>
+        <p class="lead">São os setores que mais empregam em Mato Grosso. São também os que mais fecham as portas: metade dos negócios não chega aos seis anos de atividade.</p>
+      </div>
+      <div class="numbers">
+        <div><b>450.538</b><span>empresas ativas em Mato Grosso</span></div>
+        <div><b>89%</b><span>são micro e pequenas (401.364 empresas)</span></div>
+        <div><b>34.780</b><span>empresas abertas por ano, em média, de 2021 a 2026</span></div>
+        <div><b>51,3%</b><span>de mortalidade empresarial de 2021 a 2026</span></div>
+        <div><b>6 anos</b><span>de vida média das empresas ativas</span></div>
+        <div><b>14.605</b><span>vagas de saldo nos serviços e 2.767 no comércio, de janeiro a julho de 2026</span></div>
+      </div>
+      <p class="src">Fontes: Receita Federal (setembro de 2026) e CAGED (janeiro a julho de 2026), conforme o item 2.3 do projeto.</p>
+    </div>
+  </section>
+
+  <section class="band paper">
+    <div class="wrap stack-l">
+      <div class="stack">
+        <p class="eyebrow">O que pesa sobre o empresário</p>
+        <h2>O atendimento está nas suas mãos</h2>
+      </div>
+      <div class="control">
+        <div class="out">
+          <h3>Fora do controle do empresário</h3>
+          <ul>
+            <li>Custo Brasil de cerca de R$ 1,7 trilhão por ano, perto de 20% do PIB.</li>
+            <li>Reforma tributária e insegurança jurídica e fiscal.</li>
+            <li>Novas exigências, como a NR-1 e os riscos psicossociais.</li>
+            <li>Comércio eletrônico acima de R$ 200 bilhões em 2025, com projeção próxima de R$ 260 bilhões em 2026, disputando o mesmo cliente por preço e prazo.</li>
+          </ul>
+        </div>
+        <div class="in">
+          <h3>Sob o controle do empresário</h3>
+          <p class="big-quote">A forma de receber o cliente.</p>
+          <p style="margin-top:.8rem">A internet não reproduz o atendimento. Ele atrai o cliente, ajuda a fechar a venda e faz o cliente voltar.</p>
+          <p style="margin-top:.8rem"><strong>80%</strong> dos consumidores brasileiros já desistiram de uma compra por atendimento ruim. <strong>76%</strong> consideram a qualidade do atendimento muito importante na decisão.</p>
+          <p class="src" style="margin-top:.8rem;color:var(--on-ink-soft)">Fonte: Neogrid e Opinion Box, citados no item 2.3 do projeto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band ink">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:48rem">
+        <p class="eyebrow">A solução</p>
+        <h2>Um ativo que só depende do empresário</h2>
+        <p class="lead">O movimento transforma o atendimento em ativo mensurável. Ele é construído com método, verificado por critérios e reconhecido em público. E pode ser medido pela variação das vendas, do ticket médio e da recompra antes e depois.</p>
+      </div>
+      <div class="grid3">
+        <div class="principles" style="grid-template-columns:1fr"><div><h3>Método</h3><p>Capacitação e consultoria por nível, na medida de cada porte, com atenção especial ao pequeno negócio.</p></div></div>
+        <div class="principles" style="grid-template-columns:1fr"><div><h3>Critério</h3><p>50 critérios verificáveis, com evidência objetiva e avaliação independente.</p></div></div>
+        <div class="principles" style="grid-template-columns:1fr"><div><h3>Reconhecimento</h3><p>Selo em quatro níveis, no estabelecimento e nos canais digitais, e vitrine estadual para o consumidor.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:48rem">
+        <p class="eyebrow">Do que é feito esse ativo</p>
+        <h2>Três dimensões da hospitalidade, entrelaçadas</h2>
+        <p class="lead">As três dimensões não são etapas. São faces da mesma atitude de receber. Nas interseções estão as práticas que mais distinguem a hospitalidade mato-grossense.</p>
+      </div>
+      <div class="venn-wrap">
+        <svg class="venn" viewBox="0 0 470 430" role="img" aria-labelledby="vennT vennD">
+          <title id="vennT">As três dimensões da hospitalidade</title>
+          <desc id="vennD">Três círculos sobrepostos: Amabilidade, Experiência Memorável e Encantamento. Amabilidade com Experiência Memorável gera Acolhimento. Experiência Memorável com Encantamento gera Momento marcante. Amabilidade com Encantamento gera Gesto genuíno. As três juntas geram a hospitalidade mato-grossense.</desc>
+          <circle class="c3" cx="235" cy="150" r="128" fill-opacity=".55"/>
+          <circle class="c1" cx="163" cy="272" r="128" fill-opacity=".6"/>
+          <circle class="c2" cx="307" cy="272" r="128" fill-opacity=".5"/>
+          <text class="lab" x="235" y="72" text-anchor="middle">Encantamento</text>
+          <text class="lab" x="92" y="338" text-anchor="middle">Amabilidade</text>
+          <text class="lab" x="378" y="330" text-anchor="middle">Experiência</text>
+          <text class="lab" x="378" y="348" text-anchor="middle">Memorável</text>
+          <text class="ix" x="235" y="352" text-anchor="middle">Acolhimento</text>
+          <text class="ix" x="160" y="186" text-anchor="middle">Gesto genuíno</text>
+          <text class="ix" x="312" y="186" text-anchor="middle">Momento</text>
+          <text class="ix" x="312" y="200" text-anchor="middle">marcante</text>
+          <text class="center" x="235" y="236" text-anchor="middle">Hospitalidade</text>
+          <text class="center" x="235" y="251" text-anchor="middle">mato-grossense</text>
+        </svg>
+        <div class="dims">
+          <div class="dim" style="--c:var(--mist)"><h3>Amabilidade <small>a porta · como fui tratado?</small></h3><p>A forma gentil, atenciosa e genuína de tratar cada pessoa como convidada, do primeiro olhar à despedida. Produz vínculo e confiança.</p></div>
+          <div class="dim" style="--c:var(--blue)"><h3>Experiência Memorável <small>o chão · como foi o que vivi?</small></h3><p>A jornada planejada, do primeiro contato ao pós-venda, com segurança, clareza e fluidez, e momentos que valem ser lembrados. Produz confiança e retorno.</p></div>
+          <div class="dim" style="--c:var(--ink)"><h3>Encantamento <small>o ápice · o que me surpreendeu?</small></h3><p>O gesto genuíno e oportuno que vai além do esperado, que a pessoa não pediu e não esperava. Produz recomendação, fidelidade e reputação.</p></div>
+          <p class="motto">A amabilidade é a porta, a experiência memorável é o chão e o encantamento é o ápice.</p>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="card"><h3>Hospitalidade se ensina, se padroniza e se mede</h3><p style="margin-top:.5rem">Na Itália, o selo Ospitalità Italiana existe desde 1997 e reconhece cerca de 6.750 empresas no país e mais de 2.250 no exterior. A Disney transformou o atendimento em método replicável, ensinado a empresas e governos de dezenas de países.</p></div>
+        <div class="card"><h3>Para empresas de todos os portes</h3><p style="margin-top:.5rem">Os critérios são os mesmos para todas. Muda só a forma de comprovar: um cartaz e um caderno no pequeno negócio, procedimentos e sistemas na média e na grande empresa.</p></div>
+      </div>
+      <div class="row"><a class="btn" href="#empresas">Ver como a empresa participa</a><a class="btn ghost" href="#instituicoes">Ver como as instituições participam</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- =============== 2. INSTITUIÇÕES =============== -->
+<div data-view="instituicoes" hidden>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Para instituições</p>
+        <h1 style="margin-top:.9rem">Uma aliança pela hospitalidade de Mato Grosso</h1>
+        <p class="sub">O movimento nasce da união entre o poder público, o Sebrae/MT e as instituições que representam quem empreende no estado. Cada uma traz o que já sabe fazer. Juntas, fazem da forma de receber uma marca de Mato Grosso.</p>
+        <div class="row"><a class="btn" href="#governanca">Conhecer a governança</a><a class="btn ghost" href="#interesse">Integrar a aliança</a></div>
+      </div>
+      <aside class="door">
+        <h3>Sebrae/MT, propositor e gestor</h3>
+        <p>Propõe e conduz o movimento. Articula a aliança, guarda a metodologia e responde pelo esquema de reconhecimento.</p>
+        <p style="margin-top:.8rem">A aliança se formaliza no <strong style="color:var(--on-ink)">Pacto Estadual pela Hospitalidade</strong>, assinado pelas instituições parceiras.</p>
+        <p class="src">Itens 3.5.1, 3.9 e 3.16 do projeto.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band paper">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem">
+        <p class="eyebrow">Como a aliança se forma</p>
+        <h2>Primeiro a base pública, depois a governança e a representação empresarial</h2>
+      </div>
+      <div class="tiers">
+        <div class="tier t1">
+          <span class="k">1</span>
+          <div class="stack">
+            <p class="tlabel">Parceiro principal</p>
+            <h3>Governo do Estado de Mato Grosso</h3>
+            <p>A parceria com o Governo do Estado dá ao movimento caráter de política pública. As áreas de desenvolvimento econômico e de turismo trazem a chancela institucional, a articulação com as políticas do setor e a dotação orçamentária.</p>
+            <p>Um instrumento formal de Estado dá permanência ao movimento além das mudanças de gestão.</p>
+          </div>
+        </div>
+        <div class="tier t2">
+          <span class="k">2</span>
+          <div class="stack">
+            <p class="tlabel">Instalação da governança</p>
+            <h3>Comitê gestor e demais instâncias</h3>
+            <p>Com a base pública firmada, instala-se o comitê gestor, sob coordenação do Sebrae/MT. Ele aprova o plano anual, as metas, as prioridades territoriais e o orçamento, e acompanha indicadores e riscos. Reúne-se mensalmente no primeiro ano e a cada dois meses depois, com decisões registradas em ata.</p>
+            <p>Na mesma etapa se instalam o conselho consultivo, o comitê técnico, a coordenação executiva e o compliance.</p>
+          </div>
+        </div>
+        <div class="tier t3">
+          <span class="k">3</span>
+          <div class="stack">
+            <p class="tlabel">Ampliação da aliança</p>
+            <h3>Instituições representativas das empresas e dos territórios</h3>
+            <p>A aliança se amplia com as entidades que representam a indústria, o comércio, os serviços e o turismo, e com os municípios. Cada uma participa com a capacidade que já mantém.</p>
+            <div class="orgs">
+              <div><b>Indústria</b><span>Fiemt</span></div>
+              <div><b>Comércio, serviços e turismo</b><span>Fecomércio/MT, FCDL/MT e CDLs, associações comerciais e sindicatos patronais</span></div>
+              <div><b>Turismo e alimentação</b><span>ABRASEL/MT, ABIH/MT, ABAV/MT, Convention &amp; Visitors Bureau e instâncias estaduais de turismo</span></div>
+              <div><b>Formação e consumidor</b><span>Senac/MT e Sesc/MT</span></div>
+              <div><b>Municípios</b><span>AMM e prefeituras, com os comitês municipais</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="src">Instituições previstas no projeto. A participação de cada uma se formaliza com a assinatura do Pacto.</p>
+    </div>
+  </section>
+
+  <section class="band" id="gov-sec">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem">
+        <p class="eyebrow">Governança</p>
+        <h2>Instâncias do movimento</h2>
+        <p class="lead">A governança separa quatro funções: orientar, gerir, avaliar e zelar pela integridade. A separação protege a credibilidade do reconhecimento.</p>
+      </div>
+      <div class="govlist">
+        <div class="govhead" aria-hidden="true"><span>Instância</span><span>Atribuições</span><span>Composição</span></div>
+        <div class="govrow"><div><span class="fn">Orientar</span><h3>Conselho consultivo</h3></div><p>Orienta as diretrizes do movimento, aprova o regulamento do selo, julga recursos em última instância e recebe o relatório anual de compliance.</p><p class="comp">Instituições signatárias do Pacto Estadual.<br><span>Membros a designar</span></p></div>
+        <div class="govrow"><div><span class="fn">Gerir</span><h3>Comitê gestor</h3></div><p>Gere o movimento no nível tático. Aprova plano anual, metas, prioridades territoriais e orçamento. Não participa de decisões sobre selos.</p><p class="comp">Coordenação do Sebrae/MT, com representantes do poder público estadual e das entidades parceiras.<br><span>Membros a designar</span></p></div>
+        <div class="govrow"><div><span class="fn">Gerir</span><h3>Coordenação executiva</h3></div><p>Executa as decisões do comitê gestor. Coordena capacitações, consultorias, campanha, eventos e comitês municipais.</p><p class="comp">Equipe do Sebrae/MT.<br><span>Membros a designar</span></p></div>
+        <div class="govrow"><div><span class="fn">Gerir</span><h3>Comitês municipais</h3></div><p>Mobilizam a base empresarial local e acompanham as empresas participantes. São condição para abrir o movimento no município.</p><p class="comp">Entidades locais e prefeitura.<br><span>Instalados por município</span></p></div>
+        <div class="govrow"><div><span class="fn">Avaliar</span><h3>Comitê técnico</h3></div><p>Mantém o referencial de critérios e decide a concessão dos níveis 1 a 3. Revê as próprias decisões em primeira instância de recurso.</p><p class="comp">Especialistas em atendimento, qualidade e avaliação da conformidade.<br><span>Membros a designar</span></p></div>
+        <div class="govrow"><div><span class="fn">Avaliar</span><h3>Banca de juízes</h3></div><p>Decide a concessão do nível 4 e os destaques do programa de reconhecimento.</p><p class="comp">Especialistas externos e voluntários de notório saber.<br><span>Membros a designar</span></p></div>
+        <div class="govrow"><div><span class="fn">Avaliar</span><h3>Área de avaliação e reconhecimento</h3></div><p>Conduz todo o processo de avaliação: análise de evidências, cliente oculto, visita, relatório e revisão técnica.</p><p class="comp">Coordenação de avaliação, avaliadores credenciados por edital e revisores técnicos.</p></div>
+        <div class="govrow"><div><span class="fn">Zelar</span><h3>Compliance</h3></div><p>Zela pela integridade do movimento, do selo e da marca: código de conduta, conflito de interesses, canal de denúncias e proteção de dados. Responde ao conselho consultivo.</p><p class="comp">Analista de compliance, com apoio jurídico.</p></div>
+      </div>
+      <p class="src">Item 3.16 do projeto. A composição detalhada de cada instância será definida no ato de instalação da governança.</p>
+    </div>
+  </section>
+
+  <section class="band ink">
+    <div class="wrap stack-l">
+      <div class="stack"><p class="eyebrow">Princípios</p><h2>Regras que valem para todos</h2></div>
+      <div class="principles">
+        <div><h3>Quem gere não decide sobre o selo</h3><p>O comitê gestor e a coordenação executiva não concedem, suspendem nem cancelam selos.</p></div>
+        <div><h3>Quem capacita não avalia</h3><p>Consultores e instrutores não avaliam a empresa que atenderam no mesmo ciclo.</p></div>
+        <div><h3>A integridade responde ao conselho</h3><p>O compliance se reporta ao conselho consultivo, e não à gestão do movimento.</p></div>
+        <div><h3>Toda decisão tem recurso</h3><p>A empresa pode recorrer de qualquer decisão sobre o seu selo, em duas instâncias.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="interesse-sec">
+    <div class="wrap grid2" style="align-items:start">
+      <div class="stack">
+        <p class="eyebrow">Integrar a aliança</p>
+        <h2>O Pacto Estadual pela Hospitalidade</h2>
+        <p>As instituições aderem como cossignatárias do Pacto. Passam a ter assento na governança e assumem uma meta de adesão de empresas na própria base.</p>
+        <p>Para iniciar o diálogo com a coordenação do movimento, registre o interesse da instituição.</p>
+        <p class="muted">Nesta demonstração, o registro aparece no painel da coordenação.</p>
+      </div>
+      <form class="panel" id="instForm" novalidate>
+        <div class="fields" style="margin-top:0">
+          <div class="f full"><label for="i_nome">Nome da instituição</label><input id="i_nome" required autocomplete="organization"></div>
+          <div class="f"><label for="i_tipo">Natureza</label><select id="i_tipo" required><option value="">Selecione</option><option>Poder público estadual</option><option>Prefeitura ou AMM</option><option>Federação ou entidade empresarial</option><option>Sistema S</option><option>CDL ou associação comercial</option><option>Sindicato patronal</option><option>Entidade do turismo</option><option>Outra</option></select></div>
+          <div class="f"><label for="i_mun">Município-sede</label><input id="i_mun" required></div>
+          <div class="f"><label for="i_resp">Representante</label><input id="i_resp" required autocomplete="name"></div>
+          <div class="f"><label for="i_mail">E-mail institucional</label><input id="i_mail" type="email" required autocomplete="email"></div>
+          <fieldset class="f full"><legend>Forma de participação</legend>
+            <label class="check"><input type="checkbox" name="contrib" value="Representação e mobilização da base">Representação e mobilização da base</label>
+            <label class="check"><input type="checkbox" name="contrib" value="Formação e capacitação">Formação e capacitação</label>
+            <label class="check"><input type="checkbox" name="contrib" value="Eventos e comunicação ao consumidor">Eventos e comunicação ao consumidor</label>
+            <label class="check"><input type="checkbox" name="contrib" value="Instalação de comitê municipal">Instalação de comitê municipal</label>
+            <label class="check"><input type="checkbox" name="contrib" value="Apoio institucional e orçamentário">Apoio institucional e orçamentário</label>
+          </fieldset>
+          <p class="err f full" id="instErr" hidden></p>
+          <div class="f full row"><button class="btn" type="submit">Registrar interesse</button><button class="btn ghost" type="button" id="instEx">Preencher com exemplo</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- =============== 3. EMPRESAS =============== -->
+<div data-view="empresas" hidden>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Para empresas</p>
+        <h1 style="margin-top:.9rem">Seu atendimento pode virar selo, e vitrine.</h1>
+        <p class="sub">A adesão é voluntária e gratuita. O movimento é aberto a empresas de todos os portes e setores que atendem ao público. O selo depende de evidência verificada.</p>
+        <div class="row"><a class="btn" href="#adesao">Fazer minha adesão</a><a class="btn ghost" href="#niveis-sec">Conhecer os níveis</a></div>
+      </div>
+      <aside class="door">
+        <h3>Como funciona a adesão on-line</h3>
+        <ol style="margin:0;padding-left:1.2rem;display:grid;gap:.45rem">
+          <li>Cadastro da empresa e do responsável</li>
+          <li>Confirmação do acesso por e-mail</li>
+          <li>Autodiagnóstico gratuito</li>
+          <li>Nível indicado e caminho até o selo</li>
+          <li>Pedido de avaliação ou inscrição nas ações</li>
+        </ol>
+        <div class="row" style="margin-top:1.2rem"><a class="btn" href="#adesao" style="background:var(--on-ink);border-color:var(--on-ink);color:var(--ink)">Começar agora</a></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band paper">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem"><p class="eyebrow">Três frentes</p><h2>O reconhecimento da sua hospitalidade segue padrões transparentes e pré-estabelecidos</h2><p class="lead">Os critérios são públicos e valem igualmente para todas as empresas. O que se reconhece é o atendimento que a sua empresa pratica no dia a dia.</p></div>
+      <div class="fronts">
+        <div class="card"><span class="tag">Frente 1</span><h3>Reconhecimento</h3><p>Avaliação independente por autodiagnóstico, análise de evidências, cliente oculto e visita. Concede o selo do nível.</p><p class="muted" style="margin-top:.5rem">Para toda empresa aderente.</p></div>
+        <div class="card"><span class="tag">Frente 2</span><h3>Alcance e elevação</h3><p>Capacitação, consultoria e aplicação na rotina, por nível.</p><p class="muted" style="margin-top:.5rem">Para quem quer apoio para conquistar o primeiro nível ou subir.</p></div>
+        <div class="card"><span class="tag">Frente 3</span><h3>Premiação</h3><p>Destaques semestrais, Prêmio Estadual e missões técnicas nacionais e internacionais.</p><p class="muted" style="margin-top:.5rem">Para empresas reconhecidas, conforme o desempenho.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem"><p class="eyebrow">Dois caminhos até o selo</p><h2>Já atende muito bem? Peça a avaliação direto.</h2></div>
+      <div class="paths">
+        <div class="card" style="border-color:var(--ink)"><h3>Avaliação direta</h3><p style="margin-top:.4rem">Para a empresa que já pratica a hospitalidade. Faz o autodiagnóstico, pede a avaliação do nível indicado e é avaliada sem passar pelos serviços.</p></div>
+        <p class="same">Mesmos critérios.<br>Mesma avaliação.<br>Mesmo selo.</p>
+        <div class="card" style="border-color:var(--blue)"><h3>Ações de alcance e elevação</h3><p style="margin-top:.4rem">Para a empresa que precisa desenvolver a hospitalidade. Percorre capacitação, consultoria e aplicação na rotina, e depois é avaliada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band paper" id="niveis-sec">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem"><p class="eyebrow">Quatro níveis cumulativos</p><h2>Cada degrau inclui todos os anteriores</h2><p class="lead">Os níveis seguem a lógica da pirâmide da ISO 23592. Os dois primeiros verificam se a empresa cumpre e resolve. Os dois últimos, se ela personaliza e surpreende.</p></div>
+      <div class="ladder">
+        <div class="step-l l1"><span class="n">1</span><h3>Compromisso</h3><p>Recebe bem e cumpre o que promete.</p><dl><dt>Validade</dt><dd>12 meses</dd><dt>Decisão</dt><dd>Comitê técnico</dd></dl></div>
+        <div class="step-l l2"><span class="n">2</span><h3>Prática</h3><p>Atende com padrão e resolve bem.</p><dl><dt>Validade</dt><dd>24 meses</dd><dt>Decisão</dt><dd>Comitê técnico</dd></dl></div>
+        <div class="step-l l3"><span class="n">3</span><h3>Destaque</h3><p>Personaliza, mede e encanta.</p><dl><dt>Validade</dt><dd>24 meses</dd><dt>Decisão</dt><dd>Comitê técnico</dd></dl></div>
+        <div class="step-l l4"><span class="n">4</span><h3>Referência</h3><p>Encanta de forma consistente e inspira outras empresas.</p><dl><dt>Validade</dt><dd>24 meses</dd><dt>Decisão</dt><dd>Banca de juízes</dd></dl></div>
+      </div>
+      <p class="muted">Os nomes Prática e Destaque são provisórios. Durante a validade, a empresa recebe cliente oculto sem aviso.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem"><p class="eyebrow">Ações de alcance e elevação</p><h2>Cinco etapas em cada nível</h2><p class="lead">Para quem segue a jornada, cada nível tem a mesma sequência. A avaliação só acontece depois do prazo de aplicação.</p></div>
+      <div class="cycle">
+        <div><b>Capacitação</b><i>Eu aprendo</i><p>Poucas horas por nível, presencial, on-line e a distância.</p></div>
+        <div><b>Internalização</b><i>Eu adapto ao meu negócio</i><p>Consultorias criam, com a empresa, seus próprios padrões.</p></div>
+        <div><b>Aplicação</b><i>Eu pratico na rotina</i><p>Com a equipe, no prazo do nível.</p></div>
+        <div><b>Validação</b><i>Eu comprovo o que faço</i><p>Evidências, cliente oculto e decisão colegiada.</p></div>
+        <div><b>Reconhecimento</b><i>Sou reconhecido</i><p>Selo no estabelecimento, nos canais digitais e na vitrine estadual.</p></div>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Nível</th><th>Presencial ou on-line</th><th>EAD</th><th>Internalização</th><th>Total</th><th>Prazo de aplicação</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Compromisso</strong></td><td class="num">7 h</td><td class="num">10 h</td><td class="num">2,5 h</td><td class="num"><strong>19,5 h</strong></td><td>60 dias</td></tr>
+          <tr><td><strong>2 · Prática</strong></td><td class="num">12 h</td><td class="num">3 h</td><td class="num">8 h</td><td class="num"><strong>23 h</strong></td><td>90 dias</td></tr>
+          <tr><td><strong>3 · Destaque</strong></td><td class="num">24 h</td><td class="num">17 h</td><td class="num">7 h</td><td class="num"><strong>48 h</strong></td><td>4 a 6 meses</td></tr>
+          <tr><td><strong>4 · Referência</strong></td><td class="num">16 h</td><td class="num">23 h</td><td class="num">9 h</td><td class="num"><strong>48 h</strong></td><td>6 a 12 meses</td></tr>
+          <tr><td><strong>Percurso completo</strong></td><td class="num">59 h</td><td class="num">53 h</td><td class="num">26,5 h</td><td class="num"><strong>138,5 h</strong></td><td>2 a 2,5 anos</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">Item 3.5.8 do projeto. Médias e grandes empresas contam com módulo de escala próprio.</p>
+    </div>
+  </section>
+
+  <section class="band ink">
+    <div class="wrap stack-l">
+      <div class="stack"><p class="eyebrow">Regras do reconhecimento</p><h2>O que a empresa pode esperar</h2></div>
+      <div class="principles">
+        <div><h3>Devolutiva sempre</h3><p>A empresa recebe o relatório da avaliação, reconhecida ou não.</p></div>
+        <div><h3>Prazo para corrigir</h3><p>Falha menor tem até 60 dias para correção comprovada.</p></div>
+        <div><h3>Resultado sigiloso</h3><p>A devolutiva do cliente oculto é individual. Serve de diagnóstico, não de ranking.</p></div>
+        <div><h3>Selo físico e digital</h3><p>Todo nível tem versão para o estabelecimento, redes sociais, Google e site.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =============== ADESÃO (app) =============== -->
+<div data-view="adesao" hidden>
+  <section class="band" style="padding-top:2.2rem">
+    <div class="wrap stack-l">
+      <div class="stack"><p class="eyebrow">Adesão on-line da empresa</p><h2 id="appTitle">Faça parte do movimento</h2><p class="muted">Demonstração do fluxo que o portal terá. Os dados ficam só nesta página e somem ao recarregar.</p></div>
+      <div class="app">
+        <ol class="rail" id="rail" aria-label="Etapas da adesão">
+          <li data-s="1"><span class="d">1</span><span class="t">Cadastro</span></li>
+          <li data-s="2"><span class="d">2</span><span class="t">Confirmação de acesso</span></li>
+          <li data-s="3"><span class="d">3</span><span class="t">Autodiagnóstico</span></li>
+          <li data-s="4"><span class="d">4</span><span class="t">Nível e caminho</span></li>
+          <li data-s="5"><span class="d">5</span><span class="t">Área da empresa</span></li>
+        </ol>
+        <div id="appBody"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =============== OPERAÇÃO (painel da coordenação) =============== -->
+<div data-view="operacao" hidden>
+  <section class="band" style="padding-top:2.2rem">
+    <div class="wrap stack-l">
+      <div class="stack" style="max-width:50rem"><p class="eyebrow">Visão da coordenação</p><h2>Painel de operação do movimento</h2><p class="lead">É o que o Sebrae/MT e os parceiros vão acompanhar: instituições interessadas, empresas cadastradas, autodiagnósticos e pedidos. Nesta demonstração, o painel mostra só o que foi preenchido durante a sessão.</p></div>
+      <div id="opsBody"></div>
+    </div>
+  </section>
+</div>
+
+<!-- =============== 4. CONHECIMENTO =============== -->
+<div data-view="conhecimento" hidden>
+  <section class="hero" style="padding-bottom:1rem">
+    <div class="wrap">
+      <p class="eyebrow">Conhecimento</p>
+      <h1 style="margin-top:.9rem;max-width:20ch">Para receber bem, todo dia.</h1>
+      <p class="sub">Conteúdos práticos sobre hospitalidade, atendimento e o selo. Nesta versão, os textos foram extraídos do projeto do movimento, como exemplo de como a área vai funcionar.</p>
+    </div>
+  </section>
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por tema"></div>
+      <div class="posts" id="posts"></div>
+      <p class="muted" style="margin-top:1.6rem">Em breve: casos de empresas reconhecidas, guias por setor, agenda de capacitações e encontros de reconhecimento.</p>
+    </div>
+  </section>
+</div>
+
+<div data-view="artigo" hidden>
+  <section class="band" style="padding-top:2.2rem">
+    <div class="wrap"><a href="#conhecimento" class="btn ghost small">Voltar para Conhecimento</a><article class="read" id="article" style="margin-top:1.5rem"></article></div>
+  </section>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <h4>Movimento Mato Grosso Hospitaleiro</h4>
+      <p>Amabilidade e Excelência em Atendimento. Uma iniciativa estadual pela hospitalidade no comércio e nos serviços.</p>
+      <div class="sebrae"><img alt="Sebrae" src="data:image/png;base64,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"></div>
+      <p class="src" style="margin-top:.8rem">Protótipo de frontend v4 · conteúdo baseado no Projeto v10 (outubro de 2026).</p>
+    </div>
+    <div><h4>Portal</h4><ul><li><a href="#movimento">O Movimento</a></li><li><a href="#instituicoes">Para Instituições</a></li><li><a href="#empresas">Para Empresas</a></li><li><a href="#conhecimento">Conhecimento</a></li></ul></div>
+    <div><h4>Operação</h4><ul><li><a href="#adesao">Adesão da empresa</a></li><li><a href="#interesse">Integrar a aliança</a></li><li><a href="#operacao">Painel da coordenação</a></li></ul></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- estado da sessão (memória da página) ---------- */
+const DB={ instituicoes:[], empresas:[] };
+let cur=null; // empresa em curso
+
+function toast(msg){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(t._h);t._h=setTimeout(()=>t.hidden=true,3200)}
+
+/* ---------- roteamento por âncora ---------- */
+const VIEWS=['movimento','instituicoes','empresas','adesao','operacao','conhecimento','artigo'];
+const NAVOF={movimento:'movimento',instituicoes:'instituicoes',interesse:'instituicoes',empresas:'empresas',adesao:'empresas',operacao:'instituicoes',conhecimento:'conhecimento',artigo:'conhecimento'};
+let lastView='';
+function route(){
+  let h=(location.hash||'#movimento').slice(1);
+  let view=h, anchor=null;
+  if(h==='interesse'){view='instituicoes';anchor='interesse-sec'}
+  else if(h==='governanca'){view='instituicoes';anchor='gov-sec'}
+  else if(h==='niveis-sec'){view='empresas';anchor='niveis-sec'}
+  else if(h.startsWith('artigo-')){view='artigo';openArticle(h.slice(7))}
+  else if(!VIEWS.includes(h)){view='movimento'}
+  $$('[data-view]').forEach(v=>v.hidden=v.dataset.view!==view);
+  $$('[data-nav]').forEach(a=>{ if(a.dataset.nav===NAVOF[view]) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current')});
+  if(view==='adesao') renderApp();
+  if(view==='operacao') renderOps();
+  $('#nav').classList.remove('open'); $('#menuBtn').setAttribute('aria-expanded','false');
+  if(anchor){requestAnimationFrame(()=>document.getElementById(anchor).scrollIntoView())}
+  else if(view!==lastView || view==='artigo'){window.scrollTo(0,0)}
+  lastView=view;
+}
+window.addEventListener('hashchange',route);
+$('#menuBtn').addEventListener('click',e=>{const o=$('#nav').classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',o)});
+
+/* ---------- instituições ---------- */
+$('#instEx').addEventListener('click',()=>{
+  $('#i_nome').value='Associação Comercial de Exemplo (fictícia)';$('#i_tipo').value='CDL ou associação comercial';
+  $('#i_mun').value='Cuiabá';$('#i_resp').value='Responsável de Exemplo';$('#i_mail').value='contato@exemplo.org.br';
+  $$('input[name=contrib]').forEach((c,i)=>c.checked=i===0||i===3);
+});
+$('#instForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v={nome:$('#i_nome').value.trim(),tipo:$('#i_tipo').value,municipio:$('#i_mun').value.trim(),responsavel:$('#i_resp').value.trim(),email:$('#i_mail').value.trim(),contribuicoes:$$('input[name=contrib]:checked').map(c=>c.value)};
+  const miss=[]; if(!v.nome)miss.push('nome da instituição'); if(!v.tipo)miss.push('tipo'); if(!v.municipio)miss.push('município'); if(!v.responsavel)miss.push('responsável'); if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email))miss.push('e-mail válido'); if(!v.contribuicoes.length)miss.push('ao menos uma forma de contribuir');
+  const er=$('#instErr'); if(miss.length){er.textContent='Falta preencher: '+miss.join(', ')+'.';er.hidden=false;return}
+  er.hidden=true; v.data=new Date().toLocaleString('pt-BR'); v.status='Aguardando rodada bilateral'; DB.instituicoes.push(v);
+  e.target.reset(); toast('Interesse registrado. Veja no painel da coordenação.');
+});
+
+/* ---------- critérios (Projeto v10, item 3.2.5) ---------- */
+const DIM={A:'Amabilidade',B:'Experiência Memorável',C:'Encantamento',E:'Requisito de entrada'};
+const LV=['Sem nível','Compromisso','Prática','Destaque','Referência'];
+const CUT={1:0,2:.5,3:.6,4:.75};
+const C=[
+['E-01',0,'E','Estar formalizada e com as licenças de funcionamento exigíveis para a atividade em vigor.','Cartão CNPJ, alvará e licenças','O'],
+['E-03',0,'E','Manter preços visíveis e exemplar do CDC disponível, quando exigido para a atividade.','Verificação no local ou no canal digital','O'],
+['N1-A-01',1,'A','Saudar todo cliente no primeiro contato, presencial ou digital.','Saudação em todas as visitas e contatos (cliente oculto)','O'],
+['N1-A-02',1,'A','Despedir-se com cortesia, com ou sem venda.','Despedida em todas as visitas (cliente oculto)','O'],
+['N1-A-03',1,'A','Tratar todas as pessoas com respeito, sem conduta discriminatória.','Nenhuma ocorrência observada ou relatada','O'],
+['N1-A-04',1,'A','Identificar quem atende (nome, crachá ou uniforme; nome no canal digital).','Identificação visível','P'],
+['N1-B-01',1,'B','Manter o ambiente de atendimento limpo, organizado, iluminado e seguro.','Lista de verificação do ambiente','O'],
+['N1-B-02',1,'B','Informar preço e condições de forma clara antes da compra.','Clareza confirmada nas visitas','O'],
+['N1-B-03',1,'B','Cumprir o prazo e as condições prometidas.','Amostra de pedidos ou agendamentos; relato do cliente oculto','O'],
+['N1-B-04',1,'B','Publicar os canais de contato e respondê-los no horário informado.','Teste de contato digital','O'],
+['N1-B-05',1,'B','Coletar dados pessoais só quando necessários e protegê-los.','Entrevista e verificação do armazenamento','O'],
+['N1-B-06',1,'B','Permitir o acesso e o atendimento de pessoa com deficiência, com adaptação razoável.','Verificação do acesso e do atendimento','P'],
+['N1-C-01',1,'C','O responsável conhece as três dimensões e o padrão mínimo do nível.','Entrevista curta','O'],
+['N1-C-02',1,'C','Registrar elogios e manifestações espontâneas de clientes.','Caderno, planilha ou prints','P'],
+['N2-A-01',2,'A','Ter padrão de atendimento escrito (recepção, escuta, oferta, despedida e atendimento digital), conhecido por toda a equipe.','Padrão de 1 a 2 páginas; entrevista com 2 atendentes','O'],
+['N2-A-02',2,'A','Capacitar toda a linha de frente nas três dimensões no ciclo.','Registro de participação','O'],
+['N2-A-03',2,'A','Manter o mesmo padrão com atendentes e horários diferentes.','Cliente oculto em ao menos 2 contatos, com atendentes diferentes','O'],
+['N2-A-04',2,'A','Aplicar no canal digital a mesma cortesia do presencial.','Teste por mensagem','O'],
+['N2-A-05',2,'A','Ouvir a equipe periodicamente sobre o atendimento.','Registro das conversas ou sugestões','P'],
+['N2-B-01',2,'B','Oferecer canal de reclamação acessível e divulgado.','Canal visível no local e no meio digital','O'],
+['N2-B-02',2,'B','Registrar e responder toda reclamação no prazo que a própria empresa definiu, com a solução registrada.','Registro dos últimos 90 dias','O'],
+['N2-B-03',2,'B','Mapear a jornada do cliente, do primeiro contato ao pós-venda, apontando os pontos de falha.','Mapa simples da jornada','O'],
+['N2-B-04',2,'B','Implantar ao menos uma melhoria a partir de falha ou reclamação.','Antes e depois documentados','O'],
+['N2-B-05',2,'B','Definir e informar ao cliente as regras de troca, garantia e retorno.','Regra escrita e informada','O'],
+['N2-B-06',2,'B','Oferecer acessibilidade e atendimento prioritário conforme a lei.','Verificação no local','O'],
+['N2-C-01',2,'C','Definir o que o atendente pode decidir sozinho para resolver ou agradar o cliente, inclusive limite de cortesia ou compensação.','Regra escrita; entrevista com atendente','O'],
+['N2-C-02',2,'C','Coletar a opinião do cliente de forma simples (QR code, pergunta direta, mensagem).','Instrumento e respostas do período','O'],
+['N3-A-01',3,'A','Reconhecer clientes habituais e usar suas preferências no atendimento.','Registro de preferências; relato do cliente','O'],
+['N3-A-02',3,'A','Medir a percepção de amabilidade pelo cliente e atingir a meta definida.','Pesquisa com amostra mínima definida no regulamento','O'],
+['N3-A-03',3,'A','Acompanhar o bem-estar da equipe (pesquisa simples, rotatividade, afastamentos).','Resultado e ações tomadas','O'],
+['N3-A-04',3,'A','Reconhecer internamente os comportamentos de excelência.','Prática de reconhecimento em uso','P'],
+['N3-B-01',3,'B','Planejar e praticar os momentos de chegada e de despedida.','Descrição dos momentos; confirmação nas visitas','O'],
+['N3-B-02',3,'B','Incorporar à experiência elementos da identidade de Mato Grosso, de forma compatível com o negócio.','Elementos presentes','P'],
+['N3-B-03',3,'B','Acompanhar indicadores da jornada (tempo de resposta, promessas cumpridas, reclamações) e sua tendência.','Painel com no mínimo 6 meses','O'],
+['N3-B-04',3,'B','Tratar a reclamação de forma pessoal, com gesto de reparação proporcional.','Casos registrados; cenário testado pelo cliente oculto','O'],
+['N3-B-05',3,'B','Alinhar parceiros que afetam a experiência (entregadores, terceirizados, plataformas).','Orientação ou acordo com parceiros','P'],
+['N3-B-06',3,'B','Praticar a venda consultiva: identificar a necessidade, recomendar sem pressão, oferecer complemento e acompanhar o cliente depois da compra.','Roteiro em uso; bloco de venda no cliente oculto','O'],
+['N3-C-01',3,'C','Registrar gestos de encantamento praticados pela equipe.','Casos do período','O'],
+['N3-C-02',3,'C','Medir a intenção de recomendar (NPS ou equivalente) e ter meta definida.','Resultado do período','O'],
+['N3-C-03',3,'C','Ouvir expectativas não ditas (conversa, observação, pergunta aberta) e transformá-las em melhoria.','Registro da escuta e da melhoria','P'],
+['N4-A-01',4,'A','Ter compromisso de serviço declarado e vivido; a liderança dá o exemplo e atua periodicamente na linha de frente.','Carta de serviço; observação; entrevista com equipe','O'],
+['N4-A-02',4,'A','Considerar a atitude de hospitalidade na seleção e na integração de novos colaboradores.','Roteiro de seleção e integração','O'],
+['N4-B-01',4,'B','Revisar a jornada periodicamente com participação de clientes.','Registro da revisão e das mudanças','O'],
+['N4-B-02',4,'B','Demonstrar evolução positiva em resultados ligados à experiência (recompra, retenção, ticket médio).','Série histórica entre ciclos','O'],
+['N4-B-03',4,'B','Ter a experiência reconhecida publicamente pelos clientes (avaliações on-line, menções).','Nota média e volume de avaliações','P'],
+['N4-C-01',4,'C','Demonstrar que os clientes percebem superação de expectativa.','Pesquisa: percentual de respostas "superou" acima da meta','O'],
+['N4-C-02',4,'C','Implantar no ciclo ao menos uma inovação no serviço nascida da escuta do cliente ou da equipe.','Descrição e resultado','O'],
+['N4-C-03',4,'C','Compartilhar práticas com outras empresas do movimento.','Visita, mentoria ou palestra registrada','O']
+].map(([code,lv,dim,req,ev,type])=>({code,lv,dim,req,ev,type}));
+const BLOCKS=[{lv:0,title:'Requisitos de entrada'},{lv:1,title:'Nível 1 · Compromisso'},{lv:2,title:'Nível 2 · Prática'},{lv:3,title:'Nível 3 · Destaque'},{lv:4,title:'Nível 4 · Referência'}];
+const OPT_O=[['sim','Sim, sempre'],['parte','Em parte'],['nao','Ainda não']];
+const OPT_P=[['0','0 · Não existe'],['1','1 · Iniciada'],['2','2 · Implantada'],['3','3 · Consolidada']];
+
+function evaluate(ans){
+  // ans: {code: value}; retorna nível indicado e lacunas
+  const entry=C.filter(c=>c.lv===0); const entryGaps=entry.filter(c=>ans[c.code]!=='sim');
+  if(entryGaps.length) return {level:0,entryFail:true,gaps:entryGaps,stopAt:0};
+  let level=0, gaps=[], stopAt=1, pts=0, max=0, pct=null;
+  for(let L=1;L<=4;L++){
+    const crit=C.filter(c=>c.lv===L); if(crit.some(c=>ans[c.code]===undefined)) {stopAt=L;break}
+    const oGaps=crit.filter(c=>c.type==='O'&&ans[c.code]!=='sim');
+    crit.filter(c=>c.type==='P').forEach(c=>{pts+=+ans[c.code];max+=3});
+    const p=max?pts/max:1;
+    const cutOk = L===1 ? true : p>=CUT[L];
+    if(oGaps.length||!cutOk){gaps=oGaps; stopAt=L; pct=p; return {level,gaps,stopAt,pct,cutFail:!cutOk,need:CUT[L]}}
+    level=L; stopAt=L+1; pct=p;
+  }
+  return {level,gaps,stopAt,pct};
+}
+
+/* ---------- app de adesão ---------- */
+function setRail(step){
+  $$('#rail li').forEach(li=>{const s=+li.dataset.s; li.className=s<step?'done':s===step?'now':''; if(s===step) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current')});
+}
+function renderApp(){
+  if(!cur){ return stepCadastro() }
+  if(!cur.confirmado) return stepConfirm();
+  if(!cur.resultado) return stepDiag();
+  if(!cur.caminho) return stepResult();
+  return stepArea();
+}
+const PORTES=['MEI','Microempresa (ME)','Empresa de pequeno porte (EPP)','Média empresa','Grande empresa'];
+const SETORES=['Turismo e hospedagem','Alimentos e bebidas','Comércio varejista','Serviços de atendimento ao público','Serviços pessoais e saúde','Indústria e B2B','Outro setor que atende ao público'];
+function cnpjOk(v){
+  const d=v.replace(/\D/g,''); if(d.length!==14||/^(\d)\1+$/.test(d))return false;
+  const calc=n=>{let s=0,p=n-7;for(let i=0;i<n;i++){s+=+d[i]*p--;if(p<2)p=9}const r=s%11;return r<2?0:11-r};
+  return calc(12)===+d[12]&&calc(13)===+d[13];
+}
+function maskCnpj(v){const d=v.replace(/\D/g,'').slice(0,14);return d.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2')}
+function stepCadastro(){
+  setRail(1); $('#appTitle').textContent='Faça parte do movimento';
+  $('#appBody').innerHTML=`
+  <form class="panel" id="cadForm" novalidate>
+    <h3>Cadastro da empresa</h3>
+    <p>Leva poucos minutos. Depois do cadastro, você confirma o acesso pelo e-mail e já pode fazer o autodiagnóstico.</p>
+    <div class="fields">
+      <div class="f"><label for="c_cnpj">CNPJ</label><input id="c_cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" required></div>
+      <div class="f"><label for="c_porte">Porte</label><select id="c_porte" required><option value="">Selecione</option>${PORTES.map(p=>`<option>${p}</option>`).join('')}</select></div>
+      <div class="f full"><label for="c_razao">Razão social</label><input id="c_razao" required autocomplete="organization"></div>
+      <div class="f"><label for="c_fantasia">Nome fantasia</label><input id="c_fantasia" required></div>
+      <div class="f"><label for="c_setor">Setor</label><select id="c_setor" required><option value="">Selecione</option>${SETORES.map(p=>`<option>${p}</option>`).join('')}</select></div>
+      <div class="f"><label for="c_mun">Município</label><input id="c_mun" required></div>
+      <div class="f"><label for="c_unid">Número de unidades</label><input id="c_unid" type="number" min="1" value="1" required></div>
+      <div class="f"><label for="c_resp">Responsável legal</label><input id="c_resp" required autocomplete="name"></div>
+      <div class="f"><label for="c_cargo">Cargo</label><input id="c_cargo" required></div>
+      <div class="f"><label for="c_mail">E-mail de acesso</label><input id="c_mail" type="email" required autocomplete="email"></div>
+      <div class="f"><label for="c_cel">Celular (WhatsApp)</label><input id="c_cel" inputmode="tel" required autocomplete="tel"></div>
+      <div class="f"><label for="c_pw">Senha</label><input id="c_pw" type="password" required autocomplete="new-password"><span class="hint">Mínimo de 8 caracteres, com letras e números.</span></div>
+      <div class="f"><label for="c_pw2">Confirme a senha</label><input id="c_pw2" type="password" required autocomplete="new-password"></div>
+      <fieldset class="f full"><legend>Termos</legend>
+        <label class="check"><input type="checkbox" id="c_termo">Li e aceito o termo de adesão. Como responsável legal, assumo o compromisso da empresa com a amabilidade, a experiência memorável e o encantamento.</label>
+        <label class="check"><input type="checkbox" id="c_lgpd">Li a política de privacidade e autorizo o uso dos dados para a jornada no movimento.</label>
+        <label class="check"><input type="checkbox" id="c_news">Quero receber convites para capacitações e encontros (opcional).</label>
+      </fieldset>
+      <p class="err f full" id="cadErr" hidden></p>
+      <div class="f full row"><button class="btn" type="submit">Criar cadastro</button><button class="btn ghost" type="button" id="cadEx">Preencher com exemplo</button></div>
+    </div>
+  </form>`;
+  const cn=$('#c_cnpj'); cn.addEventListener('input',()=>cn.value=maskCnpj(cn.value));
+  $('#cadEx').onclick=()=>{
+    cn.value='11.222.333/0001-81';$('#c_porte').value='Microempresa (ME)';$('#c_razao').value='Empresa de Exemplo Ltda (fictícia)';$('#c_fantasia').value='Café Exemplo';
+    $('#c_setor').value='Alimentos e bebidas';$('#c_mun').value='Cuiabá';$('#c_resp').value='Responsável de Exemplo';$('#c_cargo').value='Sócia-administradora';
+    $('#c_mail').value='contato@exemplo.com.br';$('#c_cel').value='(65) 90000-0000';$('#c_pw').value='exemplo2027';$('#c_pw2').value='exemplo2027';$('#c_termo').checked=true;$('#c_lgpd').checked=true;
+  };
+  $('#cadForm').onsubmit=e=>{
+    e.preventDefault(); const g=id=>$('#'+id).value.trim(); const miss=[];
+    if(!cnpjOk(g('c_cnpj')))miss.push('CNPJ válido');
+    ['c_porte','c_razao','c_fantasia','c_setor','c_mun','c_resp','c_cargo','c_cel'].forEach(id=>{if(!g(id))miss.push($('label[for='+id+']').textContent.toLowerCase())});
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g('c_mail')))miss.push('e-mail válido');
+    if(!/^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test($('#c_pw').value))miss.push('senha com 8 caracteres, letras e números');
+    else if($('#c_pw').value!==$('#c_pw2').value)miss.push('senhas iguais nos dois campos');
+    if(!$('#c_termo').checked)miss.push('aceite do termo de adesão');
+    if(!$('#c_lgpd').checked)miss.push('ciência da política de privacidade');
+    if(DB.empresas.some(x=>x.cnpj===g('c_cnpj')))miss.push('CNPJ ainda não cadastrado (este já está)');
+    const er=$('#cadErr'); if(miss.length){er.textContent='Confira: '+miss.join(', ')+'.';er.hidden=false;er.scrollIntoView({block:'center'});return}
+    cur={id:'MMH-'+String(DB.empresas.length+1).padStart(4,'0'),cnpj:g('c_cnpj'),razao:g('c_razao'),fantasia:g('c_fantasia'),porte:g('c_porte'),setor:g('c_setor'),municipio:g('c_mun'),unidades:+g('c_unid')||1,
+      responsavel:g('c_resp'),cargo:g('c_cargo'),email:g('c_mail'),celular:g('c_cel'),senha:'(armazenada com criptografia)',consentimentos:{termo_adesao:true,privacidade:true,convites:$('#c_news').checked},
+      criado:new Date().toLocaleString('pt-BR'),confirmado:false,codigo:String(Math.floor(100000+Math.random()*900000)),respostas:{},resultado:null,caminho:null};
+    DB.empresas.push(cur); renderApp(); window.scrollTo(0,0);
+  };
+}
+function stepConfirm(){
+  setRail(2); $('#appTitle').textContent='Confirme seu acesso';
+  const m=cur.email.replace(/^(.).*(@.*)$/,'$1•••$2');
+  $('#appBody').innerHTML=`
+  <div class="panel stack">
+    <h3>Enviamos um código para ${esc(m)}</h3>
+    <p>Digite o código de 6 dígitos para ativar o acesso da ${esc(cur.fantasia)}.</p>
+    <div class="inbox"><p class="hint">Caixa de entrada simulada</p><p><strong>Movimento Mato Grosso Hospitaleiro</strong>: seu código de acesso é</p><p class="code">${cur.codigo}</p></div>
+    <form id="otpForm" class="stack" novalidate><div class="f"><label for="otp">Código</label><input id="otp" class="otp" inputmode="numeric" maxlength="6" autocomplete="one-time-code"></div><p class="err" id="otpErr" hidden></p><div class="row"><button class="btn" type="submit">Confirmar acesso</button><button class="btn ghost" type="button" id="otpFill">Usar o código</button></div></form>
+  </div>`;
+  $('#otpFill').onclick=()=>$('#otp').value=cur.codigo;
+  $('#otpForm').onsubmit=e=>{e.preventDefault(); if($('#otp').value.trim()!==cur.codigo){const er=$('#otpErr');er.textContent='O código não confere. Confira o e-mail e digite os 6 números.';er.hidden=false;return}
+    cur.confirmado=true; cur.confirmadoEm=new Date().toLocaleString('pt-BR'); toast('Acesso confirmado.'); renderApp(); window.scrollTo(0,0)};
+}
+let blockIdx=0;
+function stepDiag(){
+  setRail(3); $('#appTitle').textContent='Autodiagnóstico';
+  const res=evaluate(cur.respostas);
+  // bloco atual: entrada (0) ou o próximo nível ainda sem resposta completa
+  const b=BLOCKS[blockIdx]; const crit=C.filter(c=>c.lv===b.lv);
+  const total=C.length, done=Object.keys(cur.respostas).length;
+  $('#appBody').innerHTML=`
+  <form class="panel" id="qForm" novalidate>
+    <div class="qhead"><h3>${b.title}</h3><span class="tag">${crit.length} itens</span></div>
+    <p>${b.lv===0?'Antes de tudo, as condições para participar. Responda com sinceridade: o resultado é só seu e serve para indicar o caminho.':'Para cada item, diga se isso já acontece na sua empresa hoje. Ao lado, a evidência que o avaliador vai pedir.'}</p>
+    <div class="prog" aria-hidden="true"><i style="width:${Math.round(done/total*100)}%"></i></div>
+    ${crit.map(c=>`
+    <div class="q dim${c.dim}">
+      <div class="meta"><span class="code">${c.code}</span><span class="dtag">${DIM[c.dim]}</span><span class="tag">${c.type==='O'?'Obrigatório':'Pontuável 0 a 3'}</span></div>
+      <p class="req" id="r_${c.code}">${esc(c.req)}</p>
+      <p class="ev muted">Evidência: ${esc(c.ev)}</p>
+      <div class="opts" role="radiogroup" aria-labelledby="r_${c.code}">
+        ${(c.type==='O'?OPT_O:OPT_P).map(([v,t])=>`<label><input type="radio" name="${c.code}" value="${v}" ${cur.respostas[c.code]===v?'checked':''}><span>${t}</span></label>`).join('')}
+      </div>
+    </div>`).join('')}
+    <p class="err" id="qErr" hidden></p>
+    <div class="row" style="margin-top:1rem"><button class="btn" type="submit">${b.lv===0?'Continuar':'Concluir este bloco'}</button><button class="btn ghost" type="button" id="qAll">Marcar tudo como "sim" (demonstração)</button></div>
+    <p class="hint" style="margin-top:1rem">Referencial preliminar de 50 critérios (item 3.2.5 do projeto). A versão final sai da parametrização com o comitê técnico. O critério E-02 já foi atendido no aceite do termo, e o E-04 se cumpre ao concluir este autodiagnóstico.</p>
+  </form>`;
+  $('#qAll').onclick=()=>crit.forEach(c=>{const v=c.type==='O'?'sim':'3';const r=document.querySelector(`input[name="${c.code}"][value="${v}"]`);r.checked=true});
+  $('#qForm').onsubmit=e=>{
+    e.preventDefault(); const miss=crit.filter(c=>!document.querySelector(`input[name="${c.code}"]:checked`));
+    if(miss.length){const er=$('#qErr');er.textContent=`Faltam ${miss.length} resposta(s): ${miss.map(c=>c.code).join(', ')}.`;er.hidden=false;return}
+    crit.forEach(c=>cur.respostas[c.code]=document.querySelector(`input[name="${c.code}"]:checked`).value);
+    const r=evaluate(cur.respostas);
+    const next = b.lv===0 ? (r.entryFail?null:1) : (r.level===b.lv && b.lv<4 ? b.lv+1 : null);
+    if(next!==null){blockIdx=next; stepDiag(); window.scrollTo(0,0); return}
+    cur.resultado=r; cur.resultadoEm=new Date().toLocaleString('pt-BR'); blockIdx=0; renderApp(); window.scrollTo(0,0);
+  };
+}
+function lvStyle(l){return ['background:var(--paper);color:var(--ink)','background:#C6CBD4;color:#10245E','background:#96A6C6;color:#10245E','background:#4364C0;color:#fff','background:#10245E;color:#fff'][l]}
+function stepResult(){
+  setRail(4); $('#appTitle').textContent='Seu resultado';
+  const r=cur.resultado, L=r.level, nextL=Math.min(L+1,4);
+  let msg, gapsTitle;
+  if(r.entryFail){msg='Antes do Nível 1, a empresa precisa atender aos requisitos de entrada.';gapsTitle='Para regularizar'}
+  else if(L===0){msg='Sua empresa ainda não atende a todos os itens obrigatórios do Nível 1. As ações de alcance ajudam a chegar lá.';gapsTitle='O que falta para o Nível 1'}
+  else if(L===4){msg='Sua empresa indica prática compatível com o nível mais alto. A decisão do Nível 4 cabe à banca de juízes.';gapsTitle=''}
+  else {msg=`Sua empresa indica prática compatível com o Nível ${L} · ${LV[L]}.`;gapsTitle=`O que falta para o Nível ${L+1} · ${LV[L+1]}`}
+  const gl=r.gaps||[];
+  const byDim=['E','A','B','C'].map(d=>[d,gl.filter(c=>c.dim===d)]).filter(x=>x[1].length);
+  const cutNote = r.cutFail ? `<p class="muted" style="margin-top:.6rem">Nos itens pontuáveis, a empresa somou ${Math.round(r.pct*100)}% dos pontos possíveis. O Nível ${r.stopAt} pede no mínimo ${Math.round(r.need*100)}%.</p>`:'';
+  $('#appBody').innerHTML=`
+  <div class="panel stack-l">
+    <div class="result">
+      <div class="badge" style="${lvStyle(L)}"><span style="font-size:.8rem;letter-spacing:.12em;text-transform:uppercase">Nível indicado</span><b>${L||'—'}</b><span>${L?LV[L]:'Ainda sem nível'}</span></div>
+      <div class="stack">
+        <h3>${msg}</h3>
+        <p>Esta é uma indicação preliminar. O selo só é concedido depois da avaliação independente, com análise de evidências, cliente oculto e visita.</p>
+        ${gapsTitle&&byDim.length?`<div><h4>${gapsTitle}</h4>${byDim.map(([d,cs])=>`<p style="margin-top:.6rem"><span class="dtag dim${d}">${DIM[d]}</span></p><ul class="gaps">${cs.map(c=>`<li><b>${c.code}</b> ${esc(c.req)}</li>`).join('')}</ul>`).join('')}</div>`:''}
+        ${cutNote}
+      </div>
+    </div>
+    <div>
+      <h3>Escolha o caminho</h3>
+      <div class="choice">
+        ${L>=1?`<div class="card" style="border-color:var(--ink)"><h4>Pedir avaliação direta do Nível ${L}</h4><p>Para quem já pratica. A área de avaliação analisa suas evidências, aplica cliente oculto e faz a visita.</p><button class="btn" data-path="direta">Pedir avaliação do Nível ${L}</button></div>`:''}
+        ${r.entryFail?`<div class="card" style="border-color:var(--blue)"><h4>Regularizar e refazer</h4><p>Resolva os requisitos de entrada e refaça o autodiagnóstico quando estiver pronto.</p><button class="btn" data-path="refazer">Refazer o autodiagnóstico</button></div>`:
+        (L<4?`<div class="card" style="border-color:var(--blue)"><h4>Ações de alcance e elevação para o Nível ${nextL}</h4><p>Capacitação, consultoria e aplicação na rotina. Depois do prazo de aplicação, a empresa é avaliada.</p><button class="btn ${L>=1?'ghost':''}" data-path="acoes">Inscrever nas ações do Nível ${nextL}</button></div>`:'')}
+      </div>
+    </div>
+  </div>`;
+  $$('[data-path]').forEach(b=>b.onclick=()=>{
+    const p=b.dataset.path;
+    if(p==='refazer'){cur.respostas={};cur.resultado=null;blockIdx=0;renderApp();return}
+    cur.caminho = p==='direta' ? {tipo:'Avaliação direta',nivel:L,status:'Aguardando designação de avaliador'} : {tipo:'Ações de alcance e elevação',nivel:nextL,status:'Aguardando consultoria de ingresso'};
+    cur.caminho.em=new Date().toLocaleString('pt-BR'); toast('Pedido registrado.'); renderApp(); window.scrollTo(0,0);
+  });
+}
+function stepArea(){
+  setRail(5); $('#appTitle').textContent='Área da empresa';
+  const r=cur.resultado, c=cur.caminho;
+  const direta=c.tipo==='Avaliação direta';
+  const steps = direta ? ['Envio das evidências pela plataforma','Designação do avaliador, com declaração de ausência de conflito','Cliente oculto e visita de avaliação','Relatório com devolutiva e revisão técnica','Decisão colegiada e entrega do selo']
+    : ['Consultoria de ingresso e plano de ação','Capacitação do nível','Internalização com consultoria','Aplicação na rotina, no prazo do nível','Avaliação independente e reconhecimento'];
+  const rec={empresa:{id:cur.id,cnpj:cur.cnpj,razao_social:cur.razao,nome_fantasia:cur.fantasia,porte:cur.porte,setor:cur.setor,municipio:cur.municipio,unidades:cur.unidades},
+    responsavel:{nome:cur.responsavel,cargo:cur.cargo,email:cur.email,celular:cur.celular,senha:cur.senha},
+    consentimentos:cur.consentimentos,acesso:{criado_em:cur.criado,confirmado_em:cur.confirmadoEm},
+    autodiagnostico:{concluido_em:cur.resultadoEm,itens_respondidos:Object.keys(cur.respostas).length,nivel_indicado:r.level,lacunas:(r.gaps||[]).map(x=>x.code)},
+    caminho:{tipo:c.tipo,nivel_pretendido:c.nivel,status:c.status,registrado_em:c.em}};
+  $('#appBody').innerHTML=`
+  <div class="panel stack-l">
+    <div class="qhead"><div><h3>Olá, ${esc(cur.fantasia)}</h3><p class="muted">${esc(cur.porte)} · ${esc(cur.setor)} · ${esc(cur.municipio)}</p></div><span class="tag">Cadastro ${esc(cur.id)}</span></div>
+    <div class="grid3">
+      <div class="card"><p class="muted">Nível indicado no autodiagnóstico</p><h3 style="margin-top:.3rem">${r.level?`${r.level} · ${LV[r.level]}`:'Ainda sem nível'}</h3></div>
+      <div class="card"><p class="muted">Caminho escolhido</p><h3 style="margin-top:.3rem">${esc(c.tipo)}</h3><p>Nível ${c.nivel} · ${LV[c.nivel]}</p></div>
+      <div class="card"><p class="muted">Situação</p><p class="status" style="margin-top:.4rem"><span class="dot"></span>${esc(c.status)}</p></div>
+    </div>
+    <div><h4>Próximos passos</h4><ul class="timeline">
+      <li class="ok">Cadastro e acesso confirmados</li><li class="ok">Autodiagnóstico concluído</li>
+      ${steps.map((s,i)=>`<li class="${i===0?'now':''}">${s}</li>`).join('')}
+    </ul></div>
+    <details><summary>Bastidores: o que o banco de dados registra</summary><p class="muted" style="margin:.6rem 0">Na versão definitiva, este registro fica no banco de dados do movimento, com senha criptografada e acesso por perfil, conforme a LGPD.</p><pre class="rec">${esc(JSON.stringify(rec,null,2))}</pre></details>
+    <div class="row"><a class="btn" href="#operacao">Ver no painel da coordenação</a><button class="btn ghost" id="newCo">Cadastrar outra empresa</button></div>
+  </div>`;
+  $('#newCo').onclick=()=>{cur=null;blockIdx=0;renderApp();window.scrollTo(0,0)};
+}
+
+/* ---------- painel da coordenação ---------- */
+function renderOps(){
+  const E=DB.empresas, I=DB.instituicoes;
+  const conf=E.filter(e=>e.confirmado).length, diag=E.filter(e=>e.resultado).length;
+  const dir=E.filter(e=>e.caminho&&e.caminho.tipo==='Avaliação direta').length, aco=E.filter(e=>e.caminho&&e.caminho.tipo!=='Avaliação direta').length;
+  const byL=[0,1,2,3,4].map(l=>E.filter(e=>e.resultado&&e.resultado.level===l).length); const mx=Math.max(1,...byL);
+  if(!E.length&&!I.length){
+    $('#opsBody').innerHTML=`<div class="empty"><h3>Nada registrado ainda nesta sessão</h3><p>Faça uma adesão de empresa ou uma manifestação de instituição. Os números e as listas aparecem aqui na hora.</p><div class="row" style="justify-content:center"><a class="btn" href="#adesao">Fazer uma adesão</a><a class="btn ghost" href="#interesse">Manifestar interesse</a></div></div>`;return}
+  $('#opsBody').innerHTML=`
+  <div class="kpis">
+    <div class="kpi"><b>${I.length}</b><span>instituições com interesse registrado</span></div>
+    <div class="kpi"><b>${E.length}</b><span>empresas cadastradas</span></div>
+    <div class="kpi"><b>${conf}</b><span>acessos confirmados</span></div>
+    <div class="kpi"><b>${diag}</b><span>autodiagnósticos concluídos</span></div>
+    <div class="kpi"><b>${dir}</b><span>pedidos de avaliação direta</span></div>
+    <div class="kpi"><b>${aco}</b><span>inscrições em ações de alcance e elevação</span></div>
+  </div>
+  <div class="grid2" style="margin-top:1.5rem">
+    <div class="card"><h3>Nível indicado no autodiagnóstico</h3><div class="bars" style="margin-top:1rem">${byL.map((n,l)=>`<div><span>${l?l+' · '+LV[l]:'Sem nível'}</span><i style="width:${n/mx*100}%;opacity:${n?1:.25}"></i><b style="font-variant-numeric:tabular-nums">${n}</b></div>`).join('')}</div></div>
+    <div class="card"><h3>Instituições</h3>${I.length?`<ul class="gaps" style="padding-left:1.1rem">${I.map(i=>`<li><b>${esc(i.nome)}</b> · ${esc(i.tipo)} · ${esc(i.municipio)}<br><span class="muted">${esc(i.contribuicoes.join('; '))} · ${esc(i.status)}</span></li>`).join('')}</ul>`:'<p class="muted" style="margin-top:.6rem">Nenhuma manifestação nesta sessão.</p>'}</div>
+  </div>
+  ${E.length?`<div class="tbl" style="margin-top:1.5rem"><table><thead><tr><th>Cadastro</th><th>Empresa</th><th>Porte e setor</th><th>Município</th><th>Etapa</th><th>Nível indicado</th><th>Caminho</th></tr></thead><tbody>
+  ${E.map(e=>`<tr><td class="num">${esc(e.id)}</td><td><b>${esc(e.fantasia)}</b><br><span class="muted">${esc(e.cnpj)}</span></td><td>${esc(e.porte)}<br><span class="muted">${esc(e.setor)}</span></td><td>${esc(e.municipio)}</td>
+  <td>${!e.confirmado?'Aguardando confirmação do e-mail':!e.resultado?'Em autodiagnóstico':!e.caminho?'Escolhendo o caminho':esc(e.caminho.status)}</td><td>${e.resultado?(e.resultado.level?e.resultado.level+' · '+LV[e.resultado.level]:'Sem nível'):'—'}</td><td>${e.caminho?esc(e.caminho.tipo)+' · Nível '+e.caminho.nivel:'—'}</td></tr>`).join('')}
+  </tbody></table></div>`:''}
+  <p class="muted" style="margin-top:1rem">Na versão definitiva, cada perfil vê só o que precisa: a coordenação vê a operação, a área de avaliação vê os pedidos e o compliance vê os registros de conflito e as denúncias. Resultados individuais do cliente oculto não aparecem para a gestão.</p>`;
+}
+
+/* ---------- conhecimento ---------- */
+const POSTS=[
+{id:'hospitalidade',tema:'Hospitalidade',titulo:'Serviço, atendimento, cortesia e hospitalidade não são a mesma coisa',resumo:'Os três primeiros se treinam com procedimento. A hospitalidade depende de vínculo.',art:'a',
+ corpo:`<p>No dia a dia, as palavras se misturam. Para o movimento, elas têm sentidos diferentes, e a diferença muda a forma de trabalhar.</p>
+ <ul><li><strong>Serviço</strong> é a entrega contratada.</li><li><strong>Atendimento</strong> é a execução dessa entrega no contato com o cliente.</li><li><strong>Cortesia</strong> é a forma polida do contato.</li><li><strong>Hospitalidade</strong> é a relação de reciprocidade que nasce quando o cliente é tratado como convidado, e não como transação.</li></ul>
+ <p>A palavra vem do latim <em>hospes</em>, que designava tanto quem recebe quanto quem é recebido. Marcel Mauss, no Ensaio sobre a dádiva (1925), descreveu trocas regidas por três obrigações: dar, receber e retribuir.</p>
+ <p>Daí vem a distinção que o movimento usa: numa transação, o pagamento encerra a relação. Numa relação de reciprocidade, a retribuição abre a próxima.</p>
+ <h3>Por que isso importa para a sua empresa</h3><p>Os três primeiros se treinam com procedimento. A hospitalidade depende de vínculo. Por isso o movimento cuida da cultura da empresa antes do roteiro. É o que o separa da oferta comum de cursos de atendimento.</p>`},
+{id:'tres-dimensoes',tema:'Hospitalidade',titulo:'A porta, o chão e o ápice: as três dimensões de receber',resumo:'Amabilidade, experiência memorável e encantamento, e o que nasce quando elas se encontram.',art:'b',
+ corpo:`<p>O movimento entende hospitalidade em três dimensões entrelaçadas. Elas não são etapas nem compartimentos. São faces da mesma atitude de receber.</p>
+ <h3>Amabilidade, a porta</h3><p>A forma gentil, atenciosa e genuína de tratar cada pessoa como convidada. Começa no primeiro olhar e se mantém mesmo quando algo dá errado. Responde à pergunta "como fui tratado?".</p>
+ <h3>Experiência memorável, o chão</h3><p>A jornada planejada para que tudo transcorra com segurança, clareza e fluidez, do primeiro contato ao pós-venda, com momentos que a pessoa deseje lembrar. A segurança é o alicerce. Responde à pergunta "como foi o que vivi?".</p>
+ <h3>Encantamento, o ápice</h3><p>O gesto genuíno e oportuno que vai além do esperado, que a pessoa não pediu e não esperava. Responde à pergunta "o que me surpreendeu?".</p>
+ <h3>Onde elas se encontram</h3><ul><li><strong>Acolhimento:</strong> a recepção calorosa que abre uma jornada sem tropeços.</li><li><strong>Momento marcante:</strong> a despedida planejada que surpreende e fica na memória.</li><li><strong>Gesto genuíno:</strong> a atenção pessoal que ninguém pediu.</li><li><strong>As três juntas:</strong> a pessoa chega como cliente e sai como convidada.</li></ul>
+ <p>Sem amabilidade, nada mais é percebido. Sem base segura e jornada fluida, a amabilidade vira simpatia vazia. E surpreender quem foi mal atendido soa como compensação, não como encanto.</p>`},
+{id:'regra-decisao',tema:'Gestão do atendimento',titulo:'Segurança, bom trato e surpresa: a regra da linha de frente',resumo:'Quando houver conflito, a ordem é sempre a mesma. E vale para todas as pessoas.',art:'c',
+ corpo:`<p>No balcão, nem tudo cabe ao mesmo tempo. Às vezes, agradar o cliente entra em conflito com a segurança dele ou com o bom trato de outra pessoa.</p>
+ <p>Para esses momentos, o movimento adota uma regra simples. Primeiro vem a segurança da pessoa. Depois, o bom trato. Por fim, a surpresa.</p>
+ <p>É a lógica da hierarquia de atendimento da Disney, adaptada às três dimensões do movimento.</p>
+ <h3>Inclusão como princípio</h3><p>As três dimensões valem para todas as pessoas, com ou sem deficiência, de qualquer origem, idade ou condição. Por isso o acesso e o atendimento de pessoas com deficiência aparecem desde o Nível 1 dos critérios.</p>`},
+{id:'ativo',tema:'Gestão do atendimento',titulo:'Atendimento é ativo. E ativo se mede.',resumo:'Conversão, ticket médio e recompra: como saber se a hospitalidade está dando resultado.',art:'d',
+ corpo:`<p>Pesquisa da Neogrid com o Opinion Box aponta que cerca de 80% dos consumidores brasileiros já desistiram de uma compra por causa de atendimento ruim. E 76% consideram a qualidade do atendimento muito importante na decisão.</p>
+ <p>Nesses termos, o atendimento se comporta como um ativo vital do negócio. E, como todo ativo, pode ser medido.</p>
+ <h3>Três números para acompanhar</h3><ul><li><strong>Variação das vendas</strong> antes e depois das mudanças.</li><li><strong>Ticket médio</strong>, o valor médio de cada venda.</li><li><strong>Taxa de recompra</strong>, quantos clientes voltam.</li></ul>
+ <p>No movimento, a empresa é medida no início (T0) e no fim do ciclo (TF), com os mesmos critérios. Os dados de faturamento são informados pela própria empresa, com termo de consentimento.</p>
+ <p>A sensibilidade varia por segmento. Turismo, hospedagem, alimentação, varejo de rua e serviços ao público vivem de avaliação imediata do cliente. Ali, a experiência decide a próxima venda.</p>`},
+{id:'selo',tema:'Selo',titulo:'Reconhecimento verificado não é certificação acreditada',resumo:'O que o selo do movimento é, quem decide e por que essa diferença importa.',art:'e',
+ corpo:`<p>O Selo Mato Grosso Hospitaleiro é um reconhecimento verificado. Ele é concedido pelo dono do programa, o Sebrae/MT, com base em avaliação independente.</p>
+ <p>Segue a lógica de programas consolidados, como o Melhores em Gestão, da Fundação Nacional da Qualidade, e o Selo Sebrae de Referência em Atendimento.</p>
+ <h3>Qual a diferença</h3><p>A certificação acreditada é feita por organismo acreditado pela Cgcre/Inmetro, segundo a ABNT NBR ISO/IEC 17065. Custa mais e leva mais tempo para implantar. No movimento, ela fica reservada para uma fase posterior e opcional.</p>
+ <h3>O que dá credibilidade ao selo</h3><ul><li>Critérios com evidência objetiva.</li><li>Cliente oculto em todos os níveis e durante a validade.</li><li>Quem capacita não avalia.</li><li>Decisão colegiada, com revisão técnica antes.</li><li>Compliance que responde ao conselho consultivo.</li><li>Recurso em duas instâncias.</li></ul>`},
+{id:'cliente-oculto',tema:'Selo',titulo:'Cliente oculto: o que é e por que o resultado é sigiloso',resumo:'Uma visita sem aviso que serve de diagnóstico, não de ranking.',art:'f',
+ corpo:`<p>No cliente oculto, um avaliador se apresenta como cliente e registra a experiência vivida, sem se identificar. Pode ser uma visita ao estabelecimento ou um contato por telefone, mensagem ou site.</p>
+ <p>No movimento, o cliente oculto aparece em todos os níveis. Ele também volta sem aviso durante a validade do selo.</p>
+ <h3>Por que o empresário não precisa temer</h3><p>A devolutiva é individual e sigilosa. O resultado serve de diagnóstico, não de ranking. A medição pública é voluntária.</p>
+ <p>Os critérios observados são conhecidos com antecedência: saudação, despedida, clareza de preço e condições, promessa cumprida e resposta nos canais, entre outros. Não há pegadinha. Há um retrato honesto do que o cliente vive.</p>`}
+];
+const ARTS={a:'linear-gradient(135deg,#10245E,#4364C0)',b:'radial-gradient(circle at 30% 70%,#96A6C6 0 30%,transparent 31%),radial-gradient(circle at 60% 70%,#4364C0 0 30%,transparent 31%),radial-gradient(circle at 45% 35%,#10245E 0 30%,transparent 31%),#E9EDF6',c:'repeating-linear-gradient(90deg,#10245E 0 33%,#4364C0 33% 66%,#96A6C6 66% 100%)',d:'linear-gradient(0deg,#C6CBD4 0 25%,#96A6C6 25% 50%,#4364C0 50% 75%,#10245E 75%)',e:'conic-gradient(from 200deg at 50% 60%,#10245E,#4364C0,#96A6C6,#10245E)',f:'radial-gradient(circle at 70% 40%,#D9824E 0 12%,transparent 13%),linear-gradient(135deg,#4364C0,#10245E)'};
+let tema='Todos';
+function renderPosts(){
+  const temas=['Todos',...new Set(POSTS.map(p=>p.tema))];
+  $('#filters').innerHTML=temas.map(t=>`<button type="button" aria-pressed="${t===tema}" data-t="${t}">${t}</button>`).join('');
+  $$('#filters button').forEach(b=>b.onclick=()=>{tema=b.dataset.t;renderPosts()});
+  $('#posts').innerHTML=POSTS.filter(p=>tema==='Todos'||p.tema===tema).map(p=>`<a class="post" href="#artigo-${p.id}"><div class="art" style="background:${ARTS[p.art]}"></div><div class="body"><span class="tag">${p.tema}</span><h3>${p.titulo}</h3><p class="muted">${p.resumo}</p></div><span class="foot">Ler o artigo</span></a>`).join('');
+}
+function openArticle(id){
+  const p=POSTS.find(x=>x.id===id)||POSTS[0];
+  $('#article').innerHTML=`<span class="tag">${p.tema}</span><h2 style="margin-top:.8rem">${p.titulo}</h2><p class="lead" style="margin-top:.8rem">${p.resumo}</p>${p.corpo}<p class="src" style="margin-top:2rem">Texto-base extraído do projeto do movimento (versão 10), para demonstração.</p>`;
+}
+renderPosts();
+route();
+})();
+</script>
+</body></html>
